@@ -4,11 +4,13 @@ import com.ibnbaqqi.fitnessTracker.domain.Tracker;
 import com.ibnbaqqi.fitnessTracker.dto.TrackerDto;
 import com.ibnbaqqi.fitnessTracker.dto.CreateTrackerRequest;
 import com.ibnbaqqi.fitnessTracker.repositories.TrackerRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class TrackerService {
 
     TrackerRepository trackerRepository;
