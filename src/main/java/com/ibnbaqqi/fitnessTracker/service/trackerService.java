@@ -1,4 +1,4 @@
-package com.ibnbaqqi.fitnessTracker;
+package com.ibnbaqqi.fitnessTracker.service;
 
 import org.springframework.stereotype.Service;
 
