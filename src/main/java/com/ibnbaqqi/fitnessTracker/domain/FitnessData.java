@@ -11,8 +11,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tracker")
-public class Tracker {
+@Table(name = "fitness_data")
+public class FitnessData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

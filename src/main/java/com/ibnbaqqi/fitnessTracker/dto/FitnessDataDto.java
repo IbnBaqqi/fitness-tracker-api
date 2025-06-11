@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TrackerDto {
+public class FitnessDataDto {
 
     private Long id;
     private String username;

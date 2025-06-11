@@ -1,9 +1,9 @@
 package com.ibnbaqqi.fitnessTracker.service;
 
-import com.ibnbaqqi.fitnessTracker.domain.Tracker;
-import com.ibnbaqqi.fitnessTracker.dto.TrackerDto;
-import com.ibnbaqqi.fitnessTracker.dto.CreateTrackerRequest;
-import com.ibnbaqqi.fitnessTracker.repositories.TrackerRepository;
+import com.ibnbaqqi.fitnessTracker.domain.FitnessData;
+import com.ibnbaqqi.fitnessTracker.dto.FitnessDataDto;
+import com.ibnbaqqi.fitnessTracker.dto.CreateFitnessDataRequest;
+import com.ibnbaqqi.fitnessTracker.repositories.FitnessDataRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -12,17 +12,17 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class TrackerService {
+public class FitnessDataService {
 
-    TrackerRepository trackerRepository;
+    FitnessDataRepository trackerRepository;
 
-    public void createTracker(CreateTrackerRequest request) {
+    public void createTracker(CreateFitnessDataRequest request) {
 
         if ( request == null ) {
             return;
         }
 
-        var track = new Tracker();
+        var track = new FitnessData();
 
         track.setUsername(request.getUsername());
         track.setActivity(request.getActivity());
@@ -32,10 +32,10 @@ public class TrackerService {
         trackerRepository.save(track);
     }
 
-    public List<TrackerDto> getTracker() {
+    public List<FitnessDataDto> getTracker() {
         return trackerRepository.findAll(Sort.by(Sort.Direction.DESC, "username")
                         .and(Sort.by(Sort.Direction.DESC, "activity"))).stream()
-                .map(tracker -> new TrackerDto(
+                .map(tracker -> new FitnessDataDto(
                         tracker.getId(),
                         tracker.getUsername(),
                         tracker.getActivity(),

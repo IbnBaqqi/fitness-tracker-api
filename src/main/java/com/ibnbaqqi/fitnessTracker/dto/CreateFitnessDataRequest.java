@@ -3,7 +3,7 @@ package com.ibnbaqqi.fitnessTracker.dto;
 import lombok.Data;
 
 @Data
-public class CreateTrackerRequest {
+public class CreateFitnessDataRequest {
 
     private String username;
     private String activity;
