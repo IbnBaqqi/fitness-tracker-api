@@ -5,6 +5,7 @@ import com.ibnbaqqi.fitnessTracker.dto.TrackerDto;
 import com.ibnbaqqi.fitnessTracker.dto.CreateTrackerRequest;
 import com.ibnbaqqi.fitnessTracker.repositories.TrackerRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,7 +33,8 @@ public class TrackerService {
     }
 
     public List<TrackerDto> getTracker() {
-        return trackerRepository.findAll().stream()
+        return trackerRepository.findAll(Sort.by(Sort.Direction.DESC, "username")
+                        .and(Sort.by(Sort.Direction.DESC, "activity"))).stream()
                 .map(tracker -> new TrackerDto(
                         tracker.getId(),
                         tracker.getUsername(),
